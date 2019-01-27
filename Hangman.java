@@ -44,7 +44,7 @@ public class Hangman extends ConsoleProgram {
             println("You have " + leftChances + " chances left.");
 
             // Get the letter guessed
-            String reader = readLine("Your guess: ");
+            String reader = readLine("One character at a time. Your guess: ");
             char guess = Character.toUpperCase(reader.charAt(0));
 
             // Check if there is the letter
@@ -67,6 +67,7 @@ public class Hangman extends ConsoleProgram {
             println("You're completely hung.\nThe word was: " + wordText + ".\nYou lose.");
         }else{
             println("You guessed the word: " + wordText + "\nYou win.");
+            canvas.displayWord(showcase);
         }
     }
 
