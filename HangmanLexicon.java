@@ -1,23 +1,34 @@
 import acm.util.*;
+import java.io.*;
+
+import java.util.*;
 
 public class HangmanLexicon {
+
+    List<String> array = new ArrayList<String>();
+
+    public HangmanLexicon(){
+        // First two steps
+
+
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("HangmanLexicon.txt"));
+
+            while (true){
+                String word = br.readLine();
+                if (word == null) break;
+                array.add(word);
+            }
+        }catch (IOException e){
+            throw new ErrorException(e);
+        }
+    }
+
     public int getWordCount(){
-        return 10;
+        return array.size();
     }
 
     public String getWord(int index){
-        switch (index){
-            case 0: return "BUOY";
-            case 1: return "COMPUTER";
-            case 2: return  "CONNOISSEUR";
-            case 3: return "DEHYDRATE";
-            case 4: return "FUZZY";
-            case 5: return "HUBBUB";
-            case 6: return "KEYHOLE";
-            case 7: return "QUAGMIRE";
-            case 8: return "SLITHER";
-            case 9: return "ZIRCON";
-            default: throw new ErrorException("getWord: Inllegal Index");
-        }
+        return array.get(index);
     }
 }
