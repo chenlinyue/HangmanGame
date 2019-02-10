@@ -29,7 +29,7 @@ public class Hangman extends ConsoleProgram {
 
         HangmanLexicon word = new HangmanLexicon();
         // Get the word
-        String wordText = word.getWord((int) (Math.random() * 10));
+        String wordText = word.getWord((int) (Math.random() * word.getWordCount()));
         String showcase = String.join("", Collections.nCopies(wordText.length(), "-"));
 
         // Start Guessing
